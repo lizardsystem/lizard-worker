@@ -4,14 +4,14 @@
 from optparse import make_option
 
 from django.core.management.base import BaseCommand
-from flooding_worker import executor
-from flooding_worker.worker.broker_connection import BrokerConnection
-from flooding_worker.worker.message_logging_handler import AMQPMessageHandler
-from flooding_worker.worker.action_workflow import ActionTaskPublisher
+from lizard_worker import executor
+from lizard_worker.worker.broker_connection import BrokerConnection
+from lizard_worker.worker.message_logging_handler import AMQPMessageHandler
+from lizard_worker.worker.action_workflow import ActionTaskPublisher
 from django.conf import settings
 
 import logging
-log = logging.getLogger("flooding.management.start_scenario")
+log = logging.getLogger("worker.management.start_scenario")
 
 
 class Command(BaseCommand):

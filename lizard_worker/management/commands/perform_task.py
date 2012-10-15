@@ -5,9 +5,7 @@ import logging #, threading, time, datetime, random, math
 from django.core.management.base import BaseCommand
 from django.conf import settings
 
-from flooding_worker.perform_task import perform_task
-
-log = logging.getLogger('flooding.worker.management.command.perform_task')
+log = logging.getLogger('worker.management.command.perform_task')
 
 
 class Command(BaseCommand):
@@ -59,6 +57,10 @@ bin/django perform_task --tasktype_id 120 --scenario_id 50 --worker_nr 1
                         default=1))
 
     def handle(self, *args, **options):
+        perform_task_module = __import__(settings.PERFORM_TASK_MODULE,
+                                         fromlist="thelist")
+        perform_task = getattr(perform_task_module,
+                               settings.PERFORM_TASK_FUNCTION)
         perform_task(options['scenario_id'],
                      options['tasktype_id'],
                      options['worker_nr'])

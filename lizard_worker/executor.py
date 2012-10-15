@@ -1,11 +1,11 @@
 #!/usr/bin/python
 # (c) Nelen & Schuurmans.  GPL licensed.
 
-from flooding_worker.worker.action_workflow import (
+from lizard_worker.worker.action_workflow import (
     ActionWorkflow, ActionTaskPublisher, ActionHeartbeat)
-from flooding_worker.worker.broker_connection import BrokerConnection
-from flooding_worker.worker.message_logging_handler import AMQPMessageHandler
-from flooding_worker.models import WorkflowTask
+from lizard_worker.worker.broker_connection import BrokerConnection
+from lizard_worker.worker.message_logging_handler import AMQPMessageHandler
+from lizard_worker.models import WorkflowTask
 from django.conf import settings
 
 import logging

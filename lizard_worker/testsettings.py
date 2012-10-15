@@ -39,7 +39,7 @@ DATABASES = {
     }
 SITE_ID = 1
 INSTALLED_APPS = [
-    'flooding_worker',
+    'lizard_worker',
     'lizard_ui',
     'staticfiles',
     'compressor',
@@ -56,7 +56,7 @@ INSTALLED_APPS = [
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 
-ROOT_URLCONF = 'flooding_worker.urls'
+ROOT_URLCONF = 'lizard_worker.urls'
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     # Default django 1.3 processors.
@@ -78,6 +78,6 @@ STATICFILES_FINDERS = STATICFILES_FINDERS
 
 try:
     # Import local settings that aren't stored in svn/git.
-    from flooding_worker.local_testsettings import *
+    from lizard_worker.local_testsettings import *
 except ImportError:
     pass

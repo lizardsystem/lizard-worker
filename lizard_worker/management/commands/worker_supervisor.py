@@ -4,15 +4,15 @@
 from optparse import make_option
 
 from django.core.management.base import BaseCommand
-from flooding_worker.file_logging import setFileHandler, removeFileHandlers
-from flooding_worker.file_logging import setLevelToAllHandlers
-from flooding_worker.worker.worker import Worker
-from flooding_worker.worker.action_supervisor import ActionSupervisor
-from flooding_worker.worker.broker_connection import BrokerConnection
-from flooding_worker.worker.message_logging_handler import AMQPMessageHandler
+from lizard_worker.file_logging import setFileHandler, removeFileHandlers
+from lizard_worker.file_logging import setLevelToAllHandlers
+from lizard_worker.worker.worker import Worker
+from lizard_worker.worker.action_supervisor import ActionSupervisor
+from lizard_worker.worker.broker_connection import BrokerConnection
+from lizard_worker.worker.message_logging_handler import AMQPMessageHandler
 
 import logging
-log = logging.getLogger("flooding.management.logging_worker")
+log = logging.getLogger("worker.management.supervisor_worker")
 
 
 class Command(BaseCommand):

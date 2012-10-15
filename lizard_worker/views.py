@@ -11,7 +11,7 @@ from lizard_worker import executor
 
 class WorkflowTasksView(View):
 
-    template = 'workflow_tasks.html'
+    template = 'lizard_worker/workflow_tasks.html'
 
     def get(self, request, workflow_id=None):
         if request.user.is_authenticated is False:
@@ -49,7 +49,7 @@ class WorkflowTasksView(View):
 
 class WorkflowsView(View):
 
-    template = 'workflows.html'
+    template = 'lizard_worker/workflows.html'
 
     def get(self, request, scenario_id=None):
         if request.user.is_authenticated is False:
@@ -65,7 +65,7 @@ class WorkflowsView(View):
 
 class LoggingView(View):
 
-    template = 'logging.html'
+    template = 'lizard_worker/logging.html'
 
     def get(self, request, workflow_id=None, task_id=None, scenario_id=None,
             step=1, amount_per_step=20):

@@ -4,13 +4,13 @@
 from optparse import make_option
 
 from django.core.management.base import BaseCommand
-from flooding_worker.file_logging import setFileHandler, removeFileHandlers
-from flooding_worker.worker.worker import Worker
-from flooding_worker.worker.action_logging import ActionLogging
-from flooding_worker.worker.broker_connection import BrokerConnection
+from lizard_worker.file_logging import setFileHandler, removeFileHandlers
+from lizard_worker.worker.worker import Worker
+from lizard_worker.worker.action_logging import ActionLogging
+from lizard_worker.worker.broker_connection import BrokerConnection
 
 import logging
-log = logging.getLogger("flooding.management.logging_worker")
+log = logging.getLogger("worker.management.logging_worker")
 
 
 class Command(BaseCommand):
