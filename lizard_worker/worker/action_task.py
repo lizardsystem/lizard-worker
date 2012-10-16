@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # (c) Nelen & Schuurmans.  GPL licensed.
 
-import simplejson
+from django.utils import simplejson
 import platform
 import time
 import datetime

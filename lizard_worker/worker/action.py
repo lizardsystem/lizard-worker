@@ -2,7 +2,7 @@
 # (c) Nelen & Schuurmans.  GPL licensed.
 
 import time
-import simplejson
+from django.utils import simplejson
 
 from django.conf import settings
 from lizard_worker.worker.messaging_body import Body

@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # (c) Nelen & Schuurmans.  GPL licensed.
 
-import simplejson
+from django.utils import simplejson
 from datetime import datetime
 
 from lizard_worker.worker.action import Action
