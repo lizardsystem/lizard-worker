@@ -2,7 +2,7 @@ Changelog of lizard-worker
 ===================================================
 
 
-0.2 (unreleased)
+0.2 (2012-10-16)
 ----------------
 
 - Use simplejson from django.utils.
