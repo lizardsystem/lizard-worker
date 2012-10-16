@@ -2,7 +2,7 @@ Changelog of lizard-worker
 ===================================================
 
 
-0.1 (unreleased)
+0.1 (2012-10-16)
 ----------------
 
 - Initial project structure created with nensskel 1.26.
