@@ -10,3 +10,5 @@ Changelog of lizard-worker
 - Transform flooding-worker to lizard-worker.
 
 - Move tasks and perform_task.py to flooding-lib.
+
+- Rename management commands, add help text.

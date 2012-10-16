@@ -50,7 +50,7 @@ Load fixture
 
    $> ...
 
-Start logging_workers, it wil save the logs into database
+
 
    $> bin/django logging_worker
 
@@ -63,3 +63,30 @@ Open website on http://10.100.155.150:55672 to monitor the broker
 
 For more information about RabbitMQ take a look at
 http://www.rabbitmq.com/.
+
+
+Management commands
+-------------------
+
+lw_logging_worker - Run logging worker. The worker listens to logging
+                    queue, retrieves the messages and insert they
+                    into storage
+
+lw_task_worker - Run task worker. The worker listens to the queue 
+                 with the same code as passed task code, retrieves  message,
+                 performs the task, sends loggings to 'logging' queue.
+
+lw_workerbeat - Run workerbeat to send the heartbeat message to configured queues.
+
+lw_supervisor_worker - Use the worker to start task-workers remotely.
+                       Only for unix systems.
+
+lw_start_scenario - Start scenario.
+
+lw_manage_worker - Run it to send a command to supervisor worker. 
+
+lw_perform_task - Run the task directly without broker.
+
+
+
+
