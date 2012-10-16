@@ -54,6 +54,6 @@ def handler500(request):
       <django.http.HttpResponseServerError object at ...>
 
     """
-    t = loader.get_template('500.html')
+    t = loader.get_template('lizard_worker/500.html')
     return HttpResponseServerError(
         t.render(Context({'request': request})))
