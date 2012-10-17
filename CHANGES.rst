@@ -5,7 +5,8 @@ Changelog of lizard-worker
 0.3 (unreleased)
 ----------------
 
-- Nothing changed yet.
+Replaced the parameter 'scenario_id' with 'body' in callback function of
+'action_task' module.
 
 
 0.2 (2012-10-16)

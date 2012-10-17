@@ -54,10 +54,10 @@ class ActionTask(Action):
                                              fromlist="thelist")
             perform_task = getattr(perform_task_module,
                                    settings.PERFORM_TASK_FUNCTION)
-            result_status = perform_task(self.body[Body.SCENARIO_ID],
-                                      int(self.task_code),
-                                      self.worker_nr,
-                                      self.broker_logging_handler)
+            result_status = perform_task(self.body,
+                                         int(self.task_code),
+                                         self.worker_nr,
+                                         self.broker_logging_handler)
         except Exception as ex:
             self.log.error("{0}".format(ex))
             result_status = False
