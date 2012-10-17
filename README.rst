@@ -40,18 +40,22 @@ and add them to the ``develop =`` list in buildout.cfg.
 
 Tests can always be run with ``bin/test`` or ``bin\test.exe``.
 
-Add BROKER_SETTINGS and QUEUES to the project settings (see example in
-workersettings.py)
-
-Add PERFORM_TASK_MODULE and PERFORM_TASK_FUNCTION that have to be calling
-on worker's callback (see example in workersettings.py) 
-
 Open website on http://localhost:8000/.... to monitor the logging
 Open website on http://10.100.155.150:55672 to monitor the broker
 
 For more information about RabbitMQ take a look at
 http://www.rabbitmq.com/.
 
+
+Configuration
+-------------
+Add BROKER_SETTINGS and QUEUES to the project settings (see example in
+workersettings.py)
+
+Add PERFORM_TASK_MODULE and PERFORM_TASK_FUNCTION that have to be calling
+on worker's callback (see example in workersettings.py) 
+
+Define TaskTypes and WorkflowTemplates using admin interface.
 
 Management commands
 -------------------
