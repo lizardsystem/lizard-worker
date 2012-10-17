@@ -2,7 +2,7 @@ Changelog of lizard-worker
 ===================================================
 
 
-0.3 (unreleased)
+0.3 (2012-10-17)
 ----------------
 
 Replaced the parameter 'scenario_id' with 'body' in callback function of
