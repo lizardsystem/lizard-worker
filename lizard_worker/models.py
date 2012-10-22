@@ -127,6 +127,9 @@ class Workflow(models.Model):
                 'workflow_id': self.id,
                 'scenario_id': self.scenario})
 
+    def get_absolute_url(self):
+        return self.get_absolute_url_scenario()
+
     class Meta:
         db_table = 'lizard_worker_workflow'
 

@@ -76,6 +76,7 @@ class WorkflowTemplateAdmin(admin.ModelAdmin):
 
 admin.site.register(Workflow, WorkflowAdmin)
 admin.site.register(WorkflowTask)
+admin.site.register(WorkflowTemplateTask)
 admin.site.register(TaskType)
 admin.site.register(WorkflowTemplate, WorkflowTemplateAdmin)
 admin.site.register(Logging, LoggingAdmin)

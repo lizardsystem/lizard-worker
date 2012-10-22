@@ -5,7 +5,13 @@ Changelog of lizard-worker
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Fixed boolean -> bool bug in action_task.
+
+- Added scenario_type to start_workflow and ActionWorkflow.
+
+- Default queue name for task code Action.retrieve_queue_options.
+
+- Added get_absolute_url for workflow.
 
 
 0.3 (2012-10-17)

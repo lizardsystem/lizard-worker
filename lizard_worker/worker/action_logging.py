@@ -21,6 +21,9 @@ class ActionLogging(Action):
         Inserts logging data into database.
         Used by logging_worker.
         Cuts message to max. 200 chars.
+
+        body is json
+        message is in body['message']
         """
         body_dict = simplejson.loads(body)
         # TODO move keys of body to Action class as class variables

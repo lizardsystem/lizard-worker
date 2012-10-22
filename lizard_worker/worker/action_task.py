@@ -81,7 +81,7 @@ class ActionTask(Action):
         """
         if not status:
             return False
-        if type(status).__name__ == 'boolean':
+        if type(status).__name__ == 'bool':
             return status
         if type(status).__name__ == 'tuple' and len(status) > 0:
             return status[0]
