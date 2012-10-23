@@ -5,7 +5,9 @@ Changelog of lizard-worker
 0.4 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added tests.
+
+- Fixed error in reque_failed_message function by empty MAX_FEAILURE_TMP dict in body. 
 
 
 0.3 (2012-10-17)

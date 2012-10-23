@@ -1,8 +1,12 @@
 # (c) Nelen & Schuurmans.  GPL licensed, see LICENSE.txt.
 
+import mock
+
 from django.test import TestCase
 from lizard_worker import models as w_models
 from lizard_worker.worker.action import Action
+from lizard_worker.worker.action_task import ActionTask
+from lizard_worker.worker.messaging_body import Body
 
 
 class ExampleTest(TestCase):
@@ -86,3 +90,54 @@ class WorkflowTest(TestCase):
             tasks = self.workflow.workflowtask_set.filter(
                 code=w_models.TaskType.objects.get(name=task_code))
             tasks.update(status=status)
+
+
+class MockChannel(object):
+
+    def basic_publish(self, exchange, routing_key, body, properties):
+        pass
+
+
+class MockMethod(object):
+
+    def __init__(self, exchange, routing_key):
+        self.exchange = exchange
+        self.routing_key = routing_key
+
+
+class ActionTaskTest(TestCase):
+
+    def setUp(self):
+        self.mock_channel = MockChannel()
+        self.mock_method = MockMethod("", "")
+        self.task_code = 120
+        self.worker_nr = 1
+
+    def test_requeue_failed_message(self):
+        """
+        Test requeueing of failed tasks.
+        """
+        action_task = ActionTask(self.task_code, self.worker_nr)
+        action_task.properties = None
+        action_task.body = self.create_body(0, 0)
+        action_task.requeue_failed_message(self.mock_channel, self.mock_method)
+
+        action_task.body = self.create_body(1, 2)
+        action_task.requeue_failed_message(self.mock_channel, self.mock_method)
+
+        action_task.body = {}
+        action_task.requeue_failed_message(self.mock_channel, self.mock_method)
+
+    def test_status_task(self):
+        """
+        """
+        action_task = ActionTask(self.task_code, self.worker_nr)
+        self.assertEqual(True, action_task.status_task(True))
+        self.assertEqual(True, action_task.status_task((True,)))
+        self.assertEqual(False, action_task.status_task(None))
+
+    def create_body(self, failures, failures_tmp):
+        body = Body().body
+        body[Body.MAX_FAILURES_TMP] = {self.task_code: failures_tmp}
+        body[Body.MAX_FAILURES] = {self.task_code: failures}
+        return body

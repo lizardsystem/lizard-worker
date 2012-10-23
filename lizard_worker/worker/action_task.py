@@ -81,7 +81,7 @@ class ActionTask(Action):
         """
         if not status:
             return False
-        if type(status).__name__ == 'boolean':
+        if type(status).__name__ == 'bool':
             return status
         if type(status).__name__ == 'tuple' and len(status) > 0:
             return status[0]
@@ -112,16 +112,24 @@ class ActionTask(Action):
         Sends message back to the origin queue or
         to the failed queue.
         """
-        self.decrease_failures()
-        if int(self.body[Body.MAX_FAILURES_TMP][self.task_code]) >= 0:
+        tmp_count_dict = self.body.get(Body.MAX_FAILURES_TMP, {})
+        count_dict = self.body.get(Body.MAX_FAILURES, {})
+        tmp_count = -1
+        count = -1
+        if isinstance(tmp_count_dict, dict) and  isinstance(tmp_count_dict, dict):
+            tmp_count = int(tmp_count_dict.get(self.task_code, -1))
+            count = int(count_dict.get(self.task_code, -1))
+            self.decrease_failures()
+
+        if tmp_count >= 0:
             ch.basic_publish(exchange=method.exchange,
                              routing_key=method.routing_key,
                              body=simplejson.dumps(self.body),
                              properties=self.properties)
             self.log.info("Task requeued due failure.")
         else:
-            self.body[Body.MAX_FAILURES_TMP][self.task_code] = self.body[
-                Body.MAX_FAILURES][self.task_code]
+            if count != -1:
+                self.body[Body.MAX_FAILURES_TMP][self.task_code] = count
             ch.basic_publish(exchange="router",
                              routing_key="failed",
                              body=simplejson.dumps(self.body),
