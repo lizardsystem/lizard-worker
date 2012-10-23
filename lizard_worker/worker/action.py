@@ -58,8 +58,12 @@ class Action(object):
 
     def retrieve_queue_options(self, task_code):
         """Retrieves queue info from brokerconfig file."""
-        return settings.QUEUES.get(task_code, {"exchange": "",
-                                               "binding_key": task_code})
+        if not task_code in settings.QUEUES:
+            self.log.debug(("retrieve_queue_options: task_code %s not set"
+                            " in settings.QUEUES. Taking default.") % task_code)
+        return settings.QUEUES.get(
+            task_code,
+            {"exchange": "", "binding_key": task_code})
 
     def root_queues(self):
         """Retrieve root queues from task's body."""

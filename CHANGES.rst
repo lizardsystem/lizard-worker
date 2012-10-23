@@ -2,12 +2,24 @@ Changelog of lizard-worker
 ===================================================
 
 
-0.4 (unreleased)
+0.5 (unreleased)
 ----------------
 
 - Added tests.
 
 - Fixed error in reque_failed_message function by empty MAX_FEAILURE_TMP dict in body. 
+
+
+0.4 (2012-10-22)
+----------------
+
+- Fixed boolean -> bool bug in action_task.
+
+- Added scenario_type to start_workflow and ActionWorkflow.
+
+- Default queue name for task code Action.retrieve_queue_options.
+
+- Added get_absolute_url for workflow.
 
 
 0.3 (2012-10-17)

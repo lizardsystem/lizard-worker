@@ -131,10 +131,18 @@ class ActionHeartbeat(Action):
 class ActionWorkflow(Action):
 
     def __init__(self, connection, scenario_id, workflowtemplate_id,
-                 workflowpriority=0, worker_nr="999"):
+                 workflowpriority=0, worker_nr="999", scenario_type="flooding_scenario"):
+        """
+        scenario_id is not necessarily a lizard-flooding scenario
+        object id. It could be anything. The field scenario_type
+        describes the object type. In general this should be metadata,
+        but it can also be used in a task. Normally you would know
+        what kind of id you get in a task.
+        """
         self.connection = connection
         self.log = logging.getLogger('worker.action.workflow')
         self.scenario_id = scenario_id
+        self.scenario_type = scenario_type
         self.workflowtemplate_id = workflowtemplate_id
         self.workflowpriority = workflowpriority
         self.workflow = None
@@ -229,6 +237,7 @@ class ActionWorkflow(Action):
         self.body[Body.WORKFLOW_ID] = self.workflow.id
         self.body[Body.PRIORITY] = self.workflow.priority
         self.body[Body.SCENARIO_ID] = self.scenario_id
+        self.body[Body.SCENARIO_TYPE] = self.scenario_type
         self.body[Body.TIME] = time.time()
 
     def start_workflow(self):

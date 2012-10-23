@@ -14,6 +14,7 @@ class Body():
     WORKFLOW_ID = "workflow_id"
     PRIORITY = "priority"
     SCENARIO_ID = "scenario_id"
+    SCENARIO_TYPE = "scenario_type"
     CURR_LOG_LEVEL = "curr_log_level"
     MESSAGE = "message"
     TIME = "time"
@@ -41,7 +42,7 @@ class Body():
             Body.IS_HEARTBEAT: False,
             Body.WORKER_NR: None,
             Body.WORKER_STATUS: "",
-            Body.NODE: platform.node()}        
+            Body.NODE: platform.node()}
 
     def __getitem__(self, key):
         return self.body[key]

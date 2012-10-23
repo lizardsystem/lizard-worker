@@ -12,7 +12,9 @@ import logging
 log = logging.getLogger("flooding.management.start_scenario")
 
 
-def start_workflow(scenario_id, workflowtemplate_id, log_level='INFO'):
+def start_workflow(
+    scenario_id, workflowtemplate_id, log_level='INFO',
+    scenario_type="flooding_scenario"):
     """
     Opens connection to broker.
     Creates ActionWorkflow object.
@@ -20,6 +22,8 @@ def start_workflow(scenario_id, workflowtemplate_id, log_level='INFO'):
     Sets logging handler to ActionWorkflow object.
     Performs workflow.
     Closes connection.
+
+    See also: worker.action_workflow.ActionWorkflow object
     """
     numeric_level = getattr(logging, log_level.upper(), None)
     if not isinstance(numeric_level, int):
@@ -33,7 +37,8 @@ def start_workflow(scenario_id, workflowtemplate_id, log_level='INFO'):
         return
 
     action = ActionWorkflow(
-        connection, scenario_id, workflowtemplate_id)
+        connection, scenario_id, workflowtemplate_id,
+        scenario_type=scenario_type)
 
     logging.handlers.AMQPMessageHandler = AMQPMessageHandler
     broker_handler = logging.handlers.AMQPMessageHandler(action,
