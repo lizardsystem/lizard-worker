@@ -2,7 +2,7 @@ Changelog of lizard-worker
 ===================================================
 
 
-0.7 (unreleased)
+0.7 (2012-10-30)
 ----------------
 
 - Created migration schemas (fake initial schema on update).
