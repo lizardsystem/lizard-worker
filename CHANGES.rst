@@ -2,7 +2,7 @@ Changelog of lizard-worker
 ===================================================
 
 
-0.6 (unreleased)
+0.6 (2012-10-30)
 ----------------
 
 - Added default value to scenario_type in body.
