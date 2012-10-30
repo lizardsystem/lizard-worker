@@ -52,6 +52,7 @@ class ActionTaskPublisher(Action):
         self.body[Body.WORKFLOW_ID] = self.task.workflow.id
         self.body[Body.PRIORITY] = self.task.workflow.priority
         self.body[Body.SCENARIO_ID] = self.task.workflow.scenario
+        self.body[Body.SCENARIO_TYPE] = self.task.workflow.scenario_type
         self.body[Body.TIME] = time.time()
         self.body[Body.CURR_TASK_CODE] = self.task.code.name
 

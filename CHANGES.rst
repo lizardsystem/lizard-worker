@@ -5,7 +5,9 @@ Changelog of lizard-worker
 0.6 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Added default value to scenario_type in body.
+
+- Added scenario_type field to Workflow model.
 
 
 0.5 (2012-10-23)

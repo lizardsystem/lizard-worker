@@ -34,6 +34,7 @@ class Body():
             Body.WORKFLOW_ID: "",
             Body.PRIORITY: 0,
             Body.SCENARIO_ID: "",
+            Body.SCENARIO_TYPE: "",
             Body.CURR_LOG_LEVEL: 0,
             Body.MESSAGE: "",
             Body.TIME: 0,

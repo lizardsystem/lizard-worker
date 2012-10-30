@@ -44,6 +44,7 @@ class Workflow(models.Model):
     code = models.CharField(max_length=100)
     template = models.ForeignKey(WorkflowTemplate, blank=True, null=True)
     scenario = models.IntegerField(blank=True, null=True)
+    scenario_type = models.CharField(max_length=200, blank=True, null=True)
     tcreated = models.DateTimeField(
         blank=True,
         null=True)
