@@ -5,7 +5,7 @@ Changelog of lizard-worker
 0.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Created migration schemas (fake initial schema on update).
 
 
 0.6 (2012-10-30)
