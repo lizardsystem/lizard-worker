@@ -5,7 +5,7 @@ Changelog of lizard-worker
 0.8 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Removed 'heartbeat' connection parameter due update in pika 0.9.6. 
 
 
 0.7 (2012-10-30)

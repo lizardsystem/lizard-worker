@@ -7,8 +7,7 @@ BROKER_SETTINGS = {
     "BROKER_PORT": 5672,
     "BROKER_USER": "",
     "BROKER_PASSWORD": "",
-    "BROKER_VHOST": "/",
-    "HEARTBEAT": False
+    "BROKER_VHOST": "/"
 }
 
 QUEUES = {

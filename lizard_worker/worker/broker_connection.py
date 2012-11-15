@@ -19,7 +19,6 @@ class BrokerConnection(object):
         self.virtual_host = settings.BROKER_SETTINGS.get("BROKER_VHOST", '')
         self.user = settings.BROKER_SETTINGS.get("BROKER_USER", '')
         self.password = settings.BROKER_SETTINGS.get("BROKER_PASSWORD", '')
-        self.heartbeat = settings.BROKER_SETTINGS.get("HEARTBEAT", '')
 
     def connect_to_broker(self):
         """Returns connection object,
@@ -29,8 +28,7 @@ class BrokerConnection(object):
             parameters = ConnectionParameters(host=self.host,
                                               port=self.port,
                                               virtual_host=self.virtual_host,
-                                              credentials=credentials,
-                                              heartbeat=self.heartbeat)
+                                              credentials=credentials)
             connection = BlockingConnection(parameters)
             return connection
         except Exception as ex:
