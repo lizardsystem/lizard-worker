@@ -13,7 +13,7 @@ install_requires = [
     'django-extensions',
     'django-nose',
     'lizard-ui',
-    'pika >= 0.9.7',
+    'pika >= 0.9.8',
     ],
 
 tests_require = [

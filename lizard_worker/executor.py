@@ -21,6 +21,7 @@ def start_workflow(
     Creates logging handler to send loggings to broker.
     Sets logging handler to ActionWorkflow object.
     Performs workflow.
+    Removes handler.
     Closes connection.
 
     See also: worker.action_workflow.ActionWorkflow object
@@ -41,12 +42,12 @@ def start_workflow(
         scenario_type=scenario_type)
 
     logging.handlers.AMQPMessageHandler = AMQPMessageHandler
-    broker_handler = logging.handlers.AMQPMessageHandler(action,
-                                                         numeric_level)
+    broker_handler = logging.handlers.AMQPMessageHandler(
+        action, numeric_level)
 
     action.set_broker_logging_handler(broker_handler)
     status = action.perform_workflow()
-
+    action.log.removeHandler(broker_handler)
     if connection.is_open:
         connection.close()
 
@@ -72,12 +73,13 @@ def start_task(task_id, log_level='INFO'):
     action = ActionTaskPublisher(connection, task)
 
     logging.handlers.AMQPMessageHandler = AMQPMessageHandler
-    broker_handler = logging.handlers.AMQPMessageHandler(action,
-                                                         numeric_level)
+    broker_handler = logging.handlers.AMQPMessageHandler(
+        action, numeric_level)
 
     action.set_broker_logging_handler(broker_handler)
-    success = action.perform()
 
+    success = action.perform()
+    action.log.removeHandler(broker_handler)
     if connection.is_open:
         connection.close()
 
@@ -99,12 +101,12 @@ def start_heartbeat(log_level='INFO'):
     action = ActionHeartbeat(connection, settings.HEARTBEAT_QUEUES)
 
     logging.handlers.AMQPMessageHandler = AMQPMessageHandler
-    broker_handler = logging.handlers.AMQPMessageHandler(action,
-                                                         numeric_level)
+    broker_handler = logging.handlers.AMQPMessageHandler(
+        action, numeric_level)
 
     action.set_broker_logging_handler(broker_handler)
     success = action.perform()
-
+    action.log.removeHandler(broker_handler)
     if connection.is_open:
         connection.close()
 

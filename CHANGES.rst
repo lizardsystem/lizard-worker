@@ -5,7 +5,9 @@ Changelog of lizard-worker
 0.9 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Remove amqp-logging-handler from action object after executing of workflow, task.
+
+- Pinned to pika >= 0.9.8
 
 
 0.8 (2012-11-15)
