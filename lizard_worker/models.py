@@ -29,8 +29,11 @@ logger = logging.getLogger(__name__)
 class WorkflowTemplate(models.Model):
     DEFAULT_TEMPLATE_CODE = 1
     IMPORTED_TEMPLATE_CODE = 2
+    THREEDI_TEMPLATE_CODE = 3
+    MAP_EXPORT_TEMPLATE_CODE = 4
 
-    code = models.IntegerField(max_length=30)
+    code = models.IntegerField(unique=True, max_length=30)
+    description = models.TextField(blank=True, null=True)
 
     def __unicode__(self):
         return str(self.code)
