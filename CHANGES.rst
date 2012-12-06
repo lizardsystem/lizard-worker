@@ -2,7 +2,7 @@ Changelog of lizard-worker
 ===================================================
 
 
-0.10 (unreleased)
+0.10 (2012-12-06)
 -----------------
 
 - Nothing changed yet.
