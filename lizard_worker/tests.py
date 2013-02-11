@@ -8,11 +8,34 @@ from lizard_worker.worker.action import Action
 from lizard_worker.worker.action_task import ActionTask
 from lizard_worker.worker.messaging_body import Body
 
+from lizard_worker import tests_models as modelsF
 
-class ExampleTest(TestCase):
 
-    def test_something(self):
-        self.assertEquals(1, 1)
+class WorkflowFactoryTest(TestCase):
+
+    def setUp(self):
+        # self.workflow = modelsF.WorkflowF.create()
+        # self.task_type1 = modelsF.TaskTypeF.create()
+        # self.task_type2 = modelsF.TaskTypeF.create(
+        #     name="130")
+        # self.template = modelsF.WorkflowTemplateF.create()
+        # self.template_task1 = modelsF.WorkflowTemplateTaskF.create(
+        #     workflow_template=self.template, code=self.task_type1)
+        # self.template_task2 = modelsF.WorkflowTemplateTaskF.create(
+        #     workflow_template=self.template, code=self.task_type2)
+        # self.task1 = modelsF.WorkflowTaskF.create()
+        # self.task2 = modelsF.WorkflowTaskF.create(
+        #     workflow=self.workflow, code=self.task_type2)
+        pass
+
+    def test_is_status_failed(self):
+        task1 = modelsF.WorkflowTaskF.create(
+            status=Action.FAILED)
+        self.assertEquals(True, task1.workflow.is_failed())
+
+    def TearDown(self):
+        modelsF.WorkflowF.objects.all().delete()
+        modelsF.TaskTypeF.objects.all().delete()
 
 
 class WorkflowTest(TestCase):

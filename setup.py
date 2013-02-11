@@ -14,6 +14,7 @@ install_requires = [
     'django-nose',
     'lizard-ui',
     'pika >= 0.9.8',
+    'factory-boy',
     ],
 
 tests_require = [
