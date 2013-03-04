@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'pika',
     'django_nose',
     'django_extensions',
+    'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +54,11 @@ INSTALLED_APPS = [
     'django.contrib.gis',
     'django.contrib.sites',
     ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': ('rest_framework.permissions.IsAdminUser',),
+    'PAGINATE_BY': 10
+}
 
 TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 

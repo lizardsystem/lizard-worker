@@ -201,6 +201,9 @@ class WorkflowTask(models.Model):
         loggings = self.logging_set.filter(is_heartbeat=False)
         if len(loggings) > 0:
             return loggings.latest('time').message
+    @property
+    def get_absolute_url_start_task(self):
+        return reverse('worker_start_task', kwargs={'task_id': self.id})
 
     def get_absolute_url_logging(self):
         return reverse('lizard_worker_workflow_task_logging', kwargs={
@@ -209,6 +212,9 @@ class WorkflowTask(models.Model):
                 'scenario_id': self.workflow.scenario})
 
     def __unicode__(self):
+        return self.code.name
+
+    def __str__(self):
         return self.code.name
 
     class Meta:

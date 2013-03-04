@@ -16,6 +16,7 @@ handler404  # pyflakes
 
 urlpatterns = patterns(
     '',
+    url(r'^api/', include('lizard_worker.api.urls')),
     url(r'^scenario/(?P<scenario_id>\d*)/$',
         WorkflowsView.as_view(),
         name='lizard_worker_scenario'),

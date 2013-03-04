@@ -11,6 +11,7 @@ long_description = '\n\n'.join([
 install_requires = [
     'Django',
     'django-extensions',
+    'djangorestframework',
     'django-nose',
     'lizard-ui',
     'pika >= 0.9.8',
