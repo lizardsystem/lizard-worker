@@ -5,7 +5,7 @@ Changelog of lizard-worker
 0.11 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Fix formating string.
 
 
 0.10 (2012-12-06)

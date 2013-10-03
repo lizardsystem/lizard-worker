@@ -55,7 +55,7 @@ class Action(object):
 
     def set_logging_to_body(self, message, log_level="0"):
         """Sets logging info into body."""
-        self.body[Body.MESSAGE] = unicode(message, 'utf-8')
+        self.body[Body.MESSAGE] = message.encode('utf-8')
         self.body[Body.CURR_LOG_LEVEL] = log_level
         self.body[Body.TIME] = time.time()
 
