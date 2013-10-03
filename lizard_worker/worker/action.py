@@ -1,6 +1,9 @@
 #!/usr/bin/python
 # (c) Nelen & Schuurmans.  GPL licensed.
 
+from __future__ import unicode_literals
+from __future__ import print_function
+
 import time
 from django.utils import simplejson
 
@@ -52,7 +55,7 @@ class Action(object):
 
     def set_logging_to_body(self, message, log_level="0"):
         """Sets logging info into body."""
-        self.body[Body.MESSAGE] = str(message)
+        self.body[Body.MESSAGE] = unicode(message, 'utf-8')
         self.body[Body.CURR_LOG_LEVEL] = log_level
         self.body[Body.TIME] = time.time()
 
