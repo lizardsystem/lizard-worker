@@ -1,8 +1,8 @@
 #!/usr/bin/python
 # (c) Nelen & Schuurmans.  GPL licensed.
 
+import json
 import time
-from django.utils import simplejson
 
 from django.conf import settings
 from lizard_worker.worker.messaging_body import Body
@@ -43,7 +43,7 @@ class Action(object):
         """Sends a message to broker. """
         channel.basic_publish(exchange=queue_options["exchange"],
                               routing_key=queue_options["binding_key"],
-                              body=simplejson.dumps(body),
+                              body=json.dumps(body),
                               properties=self.properties)
 
     def set_broker_logging_handler(self, handler):

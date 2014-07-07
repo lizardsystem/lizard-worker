@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # (c) Nelen & Schuurmans.  GPL licensed.
 
-from django.utils import simplejson
+import json
 
 from lizard_worker.worker.action import Action
 
@@ -33,7 +33,7 @@ class ActionQueue(Action):
         Catches exceptions.
         """
         self.channel = ch
-        self.body = simplejson.loads(body)
+        self.body = json.loads(body)
         self.target_queue = self.body["target_queue"]
 
         self.log.info("Start prioritizing task on queue %s." %
