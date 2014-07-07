@@ -1,8 +1,5 @@
 import os
 
-#from lizard_ui.settingshelper import setup_logging
-#from lizard_ui.settingshelper import STATICFILES_FINDERS
-
 DEBUG = True
 TEMPLATE_DEBUG = True
 
@@ -14,7 +11,6 @@ SETTINGS_DIR = os.path.dirname(os.path.realpath(__file__))
 # BUILDOUT_DIR/var/static files to give django-staticfiles a proper place
 # to place all collected static files.
 BUILDOUT_DIR = os.path.abspath(os.path.join(SETTINGS_DIR, '..'))
-#LOGGING = setup_logging(BUILDOUT_DIR)
 
 # ENGINE: 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
 # In case of geodatabase, prepend with:
@@ -40,7 +36,7 @@ DATABASES = {
 SITE_ID = 1
 INSTALLED_APPS = [
     'lizard_worker',
-    'staticfiles',
+    'django.contrib.staticfiles',
     'compressor',
     'south',
     'pika',
@@ -73,8 +69,8 @@ TEST_RUNNER = 'django_nose.NoseTestSuiteRunner'
 # Used for django-staticfiles
 STATIC_URL = '/static_media/'
 STATIC_ROOT = os.path.join(BUILDOUT_DIR, 'var', 'static')
-#STATICFILES_FINDERS = STATICFILES_FINDERS
 
+SECRET_KEY = 'snmn1twv)8x)!3$5w&2w@tjey3mcy8pdtjho3i#c$1fq#1c=yl'
 
 try:
     # Import local settings that aren't stored in svn/git.
