@@ -9,11 +9,13 @@ long_description = '\n\n'.join([
     ])
 
 install_requires = [
-    'Django',
+    'Django >= 1.4, < 1.7',
     'django-extensions',
     'django-nose',
-    'lizard-ui',
+    'django_compressor >= 1.1',  # Yes, underscore.
     'pika >= 0.9.8',
+    'south',
+    'mock'
     ],
 
 tests_require = [

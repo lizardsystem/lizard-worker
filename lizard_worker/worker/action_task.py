@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # (c) Nelen & Schuurmans.  GPL licensed.
 
-from django.utils import simplejson
+import json
 import platform
 import time
 import datetime
@@ -32,7 +32,7 @@ class ActionTask(Action):
         """
         result_status = None
         self.channel = ch
-        self.body = simplejson.loads(body)
+        self.body = json.loads(body)
         self.body[Body.WORKER_NR] = self.worker_nr
         self.body[Body.NODE] = self.node
         self.properties = properties
@@ -124,7 +124,7 @@ class ActionTask(Action):
         if tmp_count >= 0:
             ch.basic_publish(exchange=method.exchange,
                              routing_key=method.routing_key,
-                             body=simplejson.dumps(self.body),
+                             body=json.dumps(self.body),
                              properties=self.properties)
             self.log.info("Task requeued due failure.")
         else:
@@ -132,6 +132,6 @@ class ActionTask(Action):
                 self.body[Body.MAX_FAILURES_TMP][self.task_code] = count
             ch.basic_publish(exchange="router",
                              routing_key="failed",
-                             body=simplejson.dumps(self.body),
+                             body=json.dumps(self.body),
                              properties=self.properties)
             self.log.debug("Task moved to failed queue.")

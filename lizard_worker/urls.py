@@ -1,9 +1,9 @@
 # (c) Nelen & Schuurmans.  GPL licensed, see LICENSE.txt.
 from django.conf import settings
-from django.conf.urls.defaults import handler404
-from django.conf.urls.defaults import include
-from django.conf.urls.defaults import patterns
-from django.conf.urls.defaults import url
+from django.conf.urls import handler404
+from django.conf.urls import include
+from django.conf.urls import patterns
+from django.conf.urls import url
 from django.contrib import admin
 from django.http import HttpResponseServerError
 from django.template import Context
@@ -40,9 +40,8 @@ urlpatterns = patterns(
 
 if settings.DEBUG:
     # Add this also to the projects that use this application
-    urlpatterns += patterns('',
-        (r'', include('staticfiles.urls')),
-    )
+    urlpatterns += patterns(
+        '', (r'', include('django.contrib.staticfiles.urls')))
 
 
 def handler500(request):
@@ -51,7 +50,7 @@ def handler500(request):
     Simple test:
 
       >>> handler500({})  #doctest: +ELLIPSIS
-      <django.http.HttpResponseServerError object at ...>
+      <django.http.response.HttpResponseServerError object at ...>
 
     """
     t = loader.get_template('lizard_worker/500.html')

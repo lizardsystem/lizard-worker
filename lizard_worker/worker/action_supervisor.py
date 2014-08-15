@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # (c) Nelen & Schuurmans.  GPL licensed.
 
-from django.utils import simplejson
+import json
 
 from lizard_worker.worker.action import Action
 from lizard_worker.worker.action_task import ActionTask
@@ -27,7 +27,7 @@ class ActionSupervisor(Action):
     def callback(self, ch, method, properties, body):
         """
         """
-        self.body = simplejson.loads(body)
+        self.body = json.loads(body)
         self.channel = ch
         self.properties = properties
         self.execute_command()
@@ -59,7 +59,7 @@ class ActionSupervisor(Action):
             # set handler to forward logging to message broker
             #action = ActionTask(task_code, worker_nr)
             #self.set_logger(action)
-            
+
             # create and start worker as subprocess
             #p = WorkerProcess(action, worker_nr, task_code)
             #q = Queue()

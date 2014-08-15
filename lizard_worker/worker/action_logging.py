@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # (c) Nelen & Schuurmans.  GPL licensed.
 
-from django.utils import simplejson
+import json
 from datetime import datetime
 
 from lizard_worker.worker.action import Action
@@ -25,7 +25,7 @@ class ActionLogging(Action):
         body is json
         message is in body['message']
         """
-        body_dict = simplejson.loads(body)
+        body_dict = json.loads(body)
         # TODO move keys of body to Action class as class variables
         task_code = body_dict.get(Body.CURR_TASK_CODE, None)
         # TODO Implement logging of root/supervisor worker
