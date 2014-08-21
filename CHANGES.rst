@@ -2,7 +2,7 @@ Changelog of lizard-worker
 ===================================================
 
 
-0.11 (unreleased)
+0.11 (2014-08-21)
 -----------------
 
 - Upgraded everything to Django 1.6.6.
