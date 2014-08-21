@@ -5,7 +5,7 @@ Changelog of lizard-worker
 0.11 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Upgraded everything to Django 1.6.6.
 
 
 0.10 (2012-12-06)
@@ -25,7 +25,7 @@ Changelog of lizard-worker
 0.8 (2012-11-15)
 ----------------
 
-- Removed 'heartbeat' connection parameter due update in pika 0.9.6. 
+- Removed 'heartbeat' connection parameter due update in pika 0.9.6.
 
 - Pinned to pika >= 0.9.7.
 
@@ -48,7 +48,7 @@ Changelog of lizard-worker
 
 - Added tests.
 
-- Fixed error in reque_failed_message function by empty MAX_FEAILURE_TMP dict in body. 
+- Fixed error in reque_failed_message function by empty MAX_FEAILURE_TMP dict in body.
 
 
 0.4 (2012-10-22)
