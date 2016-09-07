@@ -28,7 +28,8 @@ class BrokerConnection(object):
             parameters = ConnectionParameters(host=self.host,
                                               port=self.port,
                                               virtual_host=self.virtual_host,
-                                              credentials=credentials)
+                                              credentials=credentials,
+                                              heartbeat_interval=0)
             connection = BlockingConnection(parameters)
             return connection
         except Exception as ex:
