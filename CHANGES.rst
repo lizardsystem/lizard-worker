@@ -5,7 +5,7 @@ Changelog of lizard-worker
 0.12 (unreleased)
 -----------------
 
-- Nothing changed yet.
+- Disable heartbeat.
 
 
 0.11 (2014-08-21)
