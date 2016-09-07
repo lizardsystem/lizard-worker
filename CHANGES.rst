@@ -2,7 +2,7 @@ Changelog of lizard-worker
 ===================================================
 
 
-0.12 (unreleased)
+0.12 (2016-09-07)
 -----------------
 
 - Disable heartbeat.
